@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>ngTable Example</title>
+<link href="css/ng-table.css" rel="stylesheet">
+<link href="css/ng-table.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/vendor/angular.js"></script>
+<script src="js/vendor/ng-table.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controller/tableController.js"></script>
+
+</head>
+<body ng-controller="tableController">
+	<center>
+		<h1>{{header}}</h1>
+	</center>
+
+
+
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Simple ngTable</h2>
+			<table data-ng-table="tableParams" class="table">
+				<tr>
+					<th>id</th>
+					<th>First Name</th>
+					<th>Last Names</th>
+				</tr>
+				<tr data-ng-repeat="student in $data">
+					<td>{{student.id}}</td>
+					<td>{{student.firstName}}</td>
+					<td>{{student.lastName}}</td>
+
+				</tr>
+			</table>
+
+		</div>
+
+	</div>
+
+	<div class="row">
+	<div class="col-md-6"></div>
+		<div class="col-md-6">
+			<h2>ngTable Sortable and Pagination</h2>
+			<table data-ng-table="tableParamsSortable" class="table">
+				<tr data-ng-repeat="student in $data">
+					<td data-title="'Id'" sortable="id">{{student.id}}</td>
+					<td data-title="'First Name'" sortable="firstName">{{student.firstName}}</td>
+					<td data-title="'Last Name'" sortable="lastName">{{student.lastName}}</td>
+
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
